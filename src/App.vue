@@ -1,28 +1,65 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view></router-view>
+    <div class="nav">
+      <router-link class="nav-in" to="/home">
+        <div class="nav-in-icon" style="{background:url(./assets/img/icon/hightlight.png)}"></div>
+        <div class="nav-in-word">高光</div>
+      </router-link>
+      <router-link class="nav-in" to="/source">
+        <div class="nav-in-icon" style="{background:url(./assets/img/icon/hightlight.png)}"></div>
+        <div class="nav-in-word">资源</div>
+      </router-link>
+      <router-link class="nav-in" to="/works">
+        <div class="nav-in-icon" style="{background:url(./assets/img/icon/hightlight.png)}"></div>
+        <div class="nav-in-word">作品</div>
+      </router-link>
+      <router-link class="nav-in" to="/mine">
+        <div class="nav-in-icon" style="{background:url(./assets/img/icon/hightlight.png)}"></div>
+        <div class="nav-in-word">我的</div>
+      </router-link>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+
   }
 }
 </script>
 
-<style>
+<style scoped lang='less'>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  .nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 1rem;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    &-in {
+      &-icon {
+        width: .41rem;
+        height: .41rem;
+      }
+      &-word {
+        color: #9b9b9b;
+        text-decoration: none !important;
+        font-size: .18rem;
+      }
+    }
+  }
+  .router-link-active {
+    .nav-in-word {
+      color: #fff;
+    }
+  }
 }
 </style>
